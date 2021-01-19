@@ -22,6 +22,10 @@ var itemSchema = new mongoose.Schema({
     infield:{
         type:Number,
         // require:true,
+    },
+    damaged:{
+        type:Number,
+        // require:true,
     }
     },
     {

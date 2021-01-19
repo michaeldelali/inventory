@@ -20,10 +20,18 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use(cors());
+// app.use(cors());
+const port = 3000;
+app.use(cors(
+  {
+    origin: [`http://localhost:${port}`, `https://localhost:${port}`],
+    credentials: true,
+  }
+));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 

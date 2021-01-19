@@ -37,6 +37,7 @@ router.route('/add').post((req,res)=>{
     const quantity = req.body.quantity;
     const instock = req.body.instock;
     const infield = req.body.infield;
+    const damaged = req.body.damaged;
     // const instock = Number(req.body.instock);
     // const infield = Number(req.body.infield);
 
@@ -48,6 +49,7 @@ const newHistory = new History({
     quantity,
     instock,
     infield,
+    damaged,
 });
 
 newHistory.save()

@@ -17,7 +17,10 @@
 
 const mongoose = require('mongoose')
 
-const url = `mongodb+srv://miqi:123456789w@cluster0.habve.mongodb.net/inventory?retryWrites=true&w=majority`;
+
+// const url = `mongodb+srv://miqi:123456789w@cluster0.habve.mongodb.net/inventory?retryWrites=true&w=majority`;
+
+const url = `mongodb://127.0.0.1:27017/inventory`;
 
 const connectionParams={
     useNewUrlParser: true,

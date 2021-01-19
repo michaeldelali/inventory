@@ -20,6 +20,7 @@ router.route('/add').post((req,res)=>{
     const category = req.body.category;
     const instock = req.body.instock;
     const infield = req.body.infield;
+    const damaged = req.body.damaged;
     // const instock = Number(req.body.instock);
     // const infield = Number(req.body.infield);
 
@@ -30,6 +31,7 @@ const newItem = new Item({
     category,
     instock,
     infield,
+    damaged,
 });
 
 newItem.save()
@@ -46,11 +48,28 @@ router.route('/update/:id').post((req,res)=>{
         // item.category = req.body.category;
         item.instock = req.body.instock;
         item.infield = req.body.infield;
+        item.damaged = req.body.damaged;
         item.save()
         .then(() => res.json('Item Updated'))
         .catch(err => res.status(400).json('Error: ' +err));
     })
     .catch(err => res.status(400).json('Error' + err));
+});
+
+//searching for majors
+router.route('/category/major').get((req, res) => {
+    Item.find()
+    .where('category').equals('Major')
+    .then(items => res.json(items))
+    .catch(err => res.status(400).json('Error: ' + err))
+});
+
+//searching for minors
+router.route('/category/minor').get((req, res) => {
+    Item.find()
+    .where('category').equals('Minor')
+    .then(items => res.json(items))
+    .catch(err => res.status(400).json('Error: ' + err))
 });
 
 

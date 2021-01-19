@@ -26,6 +26,10 @@ var historySchema = new mongoose.Schema({
     infield:{
         type:Number,
         // require:true,
+    },
+    damaged:{
+        type:Number,
+        // require:true,
     }
     },
     {
