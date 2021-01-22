@@ -24,8 +24,9 @@ router.route('/:id').get((req, res) => {
 
 router.route('/item/:id').get((req, res) => {
     History.find()
+    .sort({createdAt: -1})
     .where('itemId').equals(req.params.id)
-    .limit(10)
+    .limit(14)
     .then(histories => res.json(histories))
     .catch(err => res.status(400).json('Error: ' + err))
 });

@@ -4,28 +4,29 @@ const mongoose = require('mongoose'); // Erase if already required
 var itemSchema = new mongoose.Schema({
     name:{
         type:String,
-        // required:true,
-        index:true,
+        required:true,
+        unique:true,
+        index:true
     },
     description:{
         type:String,
-        // required:true,
+        required:true,
     },
     category:{
         type:String,
-        // required:true,
+        required:true,
     },
     instock:{
         type:Number,
-        // require:true,
+        require:true,
     },
     infield:{
         type:Number,
-        // require:true,
+        require:true,
     },
     damaged:{
         type:Number,
-        // require:true,
+        require:true,
     }
     },
     {
